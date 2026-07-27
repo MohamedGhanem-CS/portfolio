@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { LiveProjectButton } from '../components/LiveProjectButton';
 import { useSiteContent } from '../hooks/useSiteContent';
