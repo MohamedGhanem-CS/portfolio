@@ -14,37 +14,64 @@ const playNotificationSound = () => {
     const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
     if (!AudioContext) return;
     const ctx = new AudioContext();
+
+    // 1. Create a short burst of noise for the mechanical friction "click"
+    const bufferSize = ctx.sampleRate * 0.15;
+    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+    }
+
+    const noiseSource = ctx.createBufferSource();
+    noiseSource.buffer = buffer;
     
-    // Create two oscillators for a richer chime
-    const osc1 = ctx.createOscillator();
-    const osc2 = ctx.createOscillator();
-    const gainNode = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.value = 5000; // Higher frequency for a crisp, tiny snap
+    filter.Q.value = 1.0;
 
-    osc1.connect(gainNode);
-    osc2.connect(gainNode);
-    gainNode.connect(ctx.destination);
-
-    // Modern glass chime
-    osc1.type = 'sine';
-    osc2.type = 'triangle';
+    const noiseGain = ctx.createGain();
     
-    // First note
-    osc1.frequency.setValueAtTime(880, ctx.currentTime); // A5
-    osc2.frequency.setValueAtTime(1760, ctx.currentTime); // A6
+    // Envelope for the shutter: two fast peaks (sh-shak)
+    noiseGain.gain.setValueAtTime(0, ctx.currentTime);
     
-    // Quick sweep up for a "tech" feel
-    osc1.frequency.exponentialRampToValueAtTime(1318.51, ctx.currentTime + 0.1); // E6
-    osc2.frequency.exponentialRampToValueAtTime(2637.02, ctx.currentTime + 0.1); // E7
+    // Click 1 (shutter open)
+    noiseGain.gain.linearRampToValueAtTime(0.03, ctx.currentTime + 0.002);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02);
+    
+    // Silence between
+    noiseGain.gain.setValueAtTime(0, ctx.currentTime + 0.05);
+    
+    // Click 2 (shutter close)
+    noiseGain.gain.linearRampToValueAtTime(0.04, ctx.currentTime + 0.052);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.09);
 
-    // Soft envelope
-    gainNode.gain.setValueAtTime(0, ctx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 0.05);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+    noiseSource.connect(filter);
+    filter.connect(noiseGain);
+    noiseGain.connect(ctx.destination);
 
-    osc1.start(ctx.currentTime);
-    osc2.start(ctx.currentTime);
-    osc1.stop(ctx.currentTime + 0.5);
-    osc2.stop(ctx.currentTime + 0.5);
+    // 2. Add a tiny mechanical 'thud' for realism
+    const osc = ctx.createOscillator();
+    const oscGain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(200, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.1);
+    
+    oscGain.gain.setValueAtTime(0, ctx.currentTime);
+    oscGain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 0.005);
+    oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+    
+    osc.connect(oscGain);
+    oscGain.connect(ctx.destination);
+
+    // Play both
+    noiseSource.start(ctx.currentTime);
+    osc.start(ctx.currentTime);
+    
+    noiseSource.stop(ctx.currentTime + 0.15);
+    osc.stop(ctx.currentTime + 0.15);
+
   } catch (e) {
     // Ignore audio autoplay restrictions
   }
