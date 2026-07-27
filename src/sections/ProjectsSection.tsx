@@ -119,9 +119,13 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
               </div>
 
               {/* Middle Row - Main Image */}
-              <div className="w-[90%] mx-auto flex-1 min-h-0 rounded-3xl sm:rounded-[40px] md:rounded-[50px] overflow-hidden shrink-0 border border-white/10 mt-1 relative bg-[#111111]/50">
+              <div className="w-[90%] mx-auto flex-1 min-h-0 rounded-3xl sm:rounded-[40px] md:rounded-[50px] overflow-hidden shrink-0 border border-white/10 mt-1 relative bg-[#111111]/50 group cursor-pointer">
                 {project.media_url ? (
-                  <img src={project.media_url?.includes('supabase.co/storage') ? `${project.media_url}?width=1200&quality=85` : project.media_url} alt={`${project.name} showcase`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <>
+                    <img src={project.media_url?.includes('supabase.co/storage') ? `${project.media_url}?width=1200&quality=85` : project.media_url} alt={`${project.name} showcase`} className="w-full h-full object-cover" loading="lazy" />
+                    {/* Shine effect overlay */}
+                    <div className="absolute top-0 -inset-full h-full w-1/2 z-10 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -translate-x-[150%] group-hover:translate-x-[250%] pointer-events-none" />
+                  </>
                 ) : (
                   <div className="w-full h-full bg-white/5 flex items-center justify-center text-white/30">No Image Available</div>
                 )}
