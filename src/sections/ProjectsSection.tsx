@@ -99,7 +99,7 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
               className="flex flex-col w-full h-full"
             >
               {/* Top Row */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8 shrink-0">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 md:mb-5 shrink-0">
                 <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
                   <span className="text-[#D7E2EA] font-black leading-none text-[clamp(2.5rem,8vw,100px)]">
                     {project.num}
@@ -119,7 +119,7 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
               </div>
 
               {/* Middle Row - Main Image */}
-              <div className="w-full flex-1 min-h-0 rounded-3xl sm:rounded-[40px] md:rounded-[50px] overflow-hidden shrink-0 border border-white/10 mt-2 relative bg-[#111111]/50">
+              <div className="w-full flex-1 min-h-0 rounded-3xl sm:rounded-[40px] md:rounded-[50px] overflow-hidden shrink-0 border border-white/10 mt-1 relative bg-[#111111]/50">
                 {project.media_url ? (
                   <img src={project.media_url?.includes('supabase.co/storage') ? `${project.media_url}?width=1200&quality=85` : project.media_url} alt={`${project.name} showcase`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
                 ) : (
@@ -128,7 +128,7 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
               </div>
               
               {/* Bottom Row - Description Toggle */}
-              <div className="mt-4 sm:mt-6 shrink-0 relative flex items-center justify-center pointer-events-auto z-50">
+              <div className="mt-3 sm:mt-4 shrink-0 relative flex items-center justify-center pointer-events-auto z-50">
                 <button 
                   onClick={() => setShowDescription(true)}
                   className="px-6 py-2.5 sm:px-8 sm:py-3 inline-block rounded-full text-white font-black uppercase tracking-widest text-center cursor-pointer transition-all duration-300 bg-red-600/50 backdrop-blur-xl border border-white/40 border-t-white/90 border-b-black/40 shadow-[0_10px_40px_rgba(255,0,0,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(150,0,0,0.8)] hover:scale-105 hover:bg-red-500/60 hover:shadow-[0_15px_60px_rgba(255,0,0,1),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(150,0,0,0.8)] hover:brightness-110 active:scale-95 active:shadow-[0_5px_20px_rgba(255,0,0,0.8),_inset_0_1px_5px_rgba(255,255,255,0.5),_inset_0_6px_12px_rgba(150,0,0,0.9)] [text-shadow:0px_0px_8px_rgba(255,255,255,0.9)] text-xs md:text-sm"
