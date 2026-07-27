@@ -166,21 +166,40 @@ export const ProjectsManager = () => {
           </div>
 
           <div className="md:col-span-2 pt-6 mt-2 border-t border-white/10">
-            {/* Image 3 -> Main Image */}
-            <div className="flex flex-col gap-2 items-center w-full max-w-md mx-auto">
-              <label className="text-xs text-[#A0AAB2] uppercase tracking-widest font-bold w-full text-center mb-2">Main Project Image (Large)</label>
-              {currentProject.media_url ? (
-                <div className="relative w-full h-32 rounded-xl overflow-hidden border border-white/20 group">
-                  <img src={currentProject.media_url} alt="Project preview" className="w-full h-full object-cover" />
-                  <button type="button" onClick={() => setCurrentProject({...currentProject, media_url: ''})} className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 className="text-red-500" /></button>
-                </div>
-              ) : (
-                <label className="w-full h-32 rounded-xl border border-dashed border-white/20 flex flex-col items-center justify-center cursor-pointer hover:border-[#E60000] hover:bg-[#E60000]/5 transition-all">
-                  <UploadCloud className="w-6 h-6 text-white/50 mb-2" />
-                  <span className="text-xs text-white/50">{uploadingImage ? 'Uploading...' : 'Upload Image'}</span>
-                  <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, 'media_url')} disabled={uploadingImage} />
-                </label>
-              )}
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+              {/* Desktop Image */}
+              <div className="flex flex-col gap-2 items-center w-full max-w-sm">
+                <label className="text-xs text-[#A0AAB2] uppercase tracking-widest font-bold w-full text-center mb-2">Desktop Image (Horizontal)</label>
+                {currentProject.media_url ? (
+                  <div className="relative w-full h-32 rounded-xl overflow-hidden border border-white/20 group">
+                    <img src={currentProject.media_url} alt="Project preview" className="w-full h-full object-cover" />
+                    <button type="button" onClick={() => setCurrentProject({...currentProject, media_url: ''})} className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 className="text-red-500" /></button>
+                  </div>
+                ) : (
+                  <label className="w-full h-32 rounded-xl border border-dashed border-white/20 flex flex-col items-center justify-center cursor-pointer hover:border-[#E60000] hover:bg-[#E60000]/5 transition-all">
+                    <UploadCloud className="w-6 h-6 text-white/50 mb-2" />
+                    <span className="text-xs text-white/50">{uploadingImage ? 'Uploading...' : 'Upload Image'}</span>
+                    <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, 'media_url')} disabled={uploadingImage} />
+                  </label>
+                )}
+              </div>
+
+              {/* Mobile Image */}
+              <div className="flex flex-col gap-2 items-center w-full max-w-sm">
+                <label className="text-xs text-[#A0AAB2] uppercase tracking-widest font-bold w-full text-center mb-2">Mobile Image (Vertical) - Optional</label>
+                {currentProject.mobile_media_url ? (
+                  <div className="relative w-full h-32 rounded-xl overflow-hidden border border-white/20 group">
+                    <img src={currentProject.mobile_media_url} alt="Mobile preview" className="w-full h-full object-cover" />
+                    <button type="button" onClick={() => setCurrentProject({...currentProject, mobile_media_url: ''})} className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 className="text-red-500" /></button>
+                  </div>
+                ) : (
+                  <label className="w-full h-32 rounded-xl border border-dashed border-white/20 flex flex-col items-center justify-center cursor-pointer hover:border-[#E60000] hover:bg-[#E60000]/5 transition-all">
+                    <UploadCloud className="w-6 h-6 text-white/50 mb-2" />
+                    <span className="text-xs text-white/50">{uploadingImage ? 'Uploading...' : 'Upload Mobile Image'}</span>
+                    <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, 'mobile_media_url')} disabled={uploadingImage} />
+                  </label>
+                )}
+              </div>
             </div>
           </div>
 

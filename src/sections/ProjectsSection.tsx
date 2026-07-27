@@ -14,6 +14,7 @@ export interface Project {
   live_link: string;
   github_link: string;
   media_url: string;
+  mobile_media_url?: string;
   is_video: boolean;
   description: string;
   tags: string[];
@@ -122,7 +123,10 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
               <div className="w-[90%] mx-auto flex-1 min-h-0 rounded-3xl sm:rounded-[40px] md:rounded-[50px] overflow-hidden shrink-0 border border-white/10 mt-1 relative bg-[#111111]/50 group cursor-pointer">
                 {project.media_url ? (
                   <>
-                    <img src={project.media_url?.includes('supabase.co/storage') ? `${project.media_url}?width=1200&quality=85` : project.media_url} alt={`${project.name} showcase`} className="w-full h-full object-cover" loading="lazy" />
+                    <picture className="w-full h-full object-cover">
+                      <source media="(min-width: 768px)" srcSet={project.media_url?.includes('supabase.co/storage') ? `${project.media_url}?width=1200&quality=85` : project.media_url} />
+                      <img src={project.mobile_media_url ? (project.mobile_media_url?.includes('supabase.co/storage') ? `${project.mobile_media_url}?width=800&quality=85` : project.mobile_media_url) : (project.media_url?.includes('supabase.co/storage') ? `${project.media_url}?width=800&quality=85` : project.media_url)} alt={`${project.name} showcase`} className="w-full h-full object-cover" loading="lazy" />
+                    </picture>
                     {/* Shine effect overlay */}
                     <div className="absolute top-0 -inset-full h-full w-1/2 z-10 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -translate-x-[150%] group-hover:translate-x-[250%] pointer-events-none" />
                   </>
