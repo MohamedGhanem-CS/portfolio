@@ -34,7 +34,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Right Side: ID Card */}
-        <div className="hidden lg:flex flex-col items-end justify-start w-full lg:w-[40%] pr-[8%] xl:pr-[12%]">
+        <div className="hidden lg:flex flex-col items-end justify-start w-full lg:w-[40%] pr-[2%] xl:pr-[4%] translate-x-6">
           <div className="relative cursor-grab active:cursor-grabbing lg:h-full w-full flex justify-end">
              <IdCard />
           </div>
