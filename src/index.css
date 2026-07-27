@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --font-sans: "Kanit", sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body, #root, .main-wrapper {
+    background-color: #0C0C0C;
+    color: #D7E2EA;
+    overflow-x: clip;
+  }
+  
+  body {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  /* Fix WebKit Autofill background color ruining dark theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 50px #0C0C0C inset !important;
+      -webkit-text-fill-color: white !important;
+      transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer utilities {
+  .hero-heading {
+    background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+@keyframes marquee-reverse {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+/* Professional Portrait Tablet Layout */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .portrait-tablet-stack {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    padding-top: 1rem !important;
+  }
+  .portrait-tablet-left {
+    width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding-bottom: 2rem !important;
+  }
+  .portrait-tablet-right {
+    width: 100% !important;
+    align-items: center !important;
+    padding-bottom: 3rem !important;
+  }
+  .portrait-tablet-image {
+    max-height: 55vh !important;
+  }
+  .portrait-tablet-mg {
+    position: absolute !important;
+    right: 1.5rem !important;
+    bottom: 38vh !important;
+    z-index: 50 !important;
+  }
+  .portrait-tablet-stats {
+    min-width: 320px !important;
+    max-width: 100% !important;
+  }
+}
+
+/* All Portrait Screens (Mobile + Tablet) */
+@media (orientation: portrait) {
+  .portrait-hide { display: none !important; }
+  .portrait-show-inline { display: inline !important; }
+  .portrait-static { position: static !important; }
+  
+  .portrait-stats-bottom {
+    position: absolute !important;
+    bottom: 2rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 85% !important;
+    max-width: 350px !important;
+    z-index: 50 !important;
+    margin: 0 !important;
+  }
+}

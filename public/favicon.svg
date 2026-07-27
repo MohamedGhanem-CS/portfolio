@@ -1,0 +1,49 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Simple, Elegant Dark Background -->
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#180505" />
+      <stop offset="100%" stop-color="#050202" />
+    </radialGradient>
+
+    <!-- Premium Red Gradient -->
+    <linearGradient id="redGradient" x1="124" y1="136" x2="388" y2="376" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF5555" />
+      <stop offset="50%" stop-color="#E60000" />
+      <stop offset="100%" stop-color="#990000" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="512" height="512" rx="128" fill="url(#bg)" />
+  
+  <!-- Very subtle minimalist border -->
+  <rect width="504" height="504" x="4" y="4" rx="124" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.03" />
+
+  <!-- Soft Elegant Glow -->
+  <path d="M 124 336 
+           L 124 136 
+           L 196 236 
+           L 268 136 
+           A 120 120 0 0 1 388 256 
+           A 120 120 0 0 1 268 376 
+           A 120 120 0 0 1 148 256 
+           L 268 256" 
+        fill="none" stroke="#E60000" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" 
+        style="filter: blur(20px); opacity: 0.5;" />
+
+  <!-- Core Minimalist Ribbon -->
+  <path d="M 124 336 
+           L 124 136 
+           L 196 236 
+           L 268 136 
+           A 120 120 0 0 1 388 256 
+           A 120 120 0 0 1 268 376 
+           A 120 120 0 0 1 148 256 
+           L 268 256" 
+        fill="none" stroke="url(#redGradient)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- The AI Focal Point (The Singularity Node at the center of the G) -->
+  <circle cx="268" cy="256" r="18" fill="#FF4D4D" />
+  <circle cx="268" cy="256" r="8" fill="#FFFFFF" />
+</svg>

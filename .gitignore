@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables (CRITICAL - never push secrets)
+.env
+.env.*
+
+# SQL setup/migration scripts (don't expose DB schema publicly)
+*.sql
+
+# Test/debug scripts (may contain API keys)
+test*.js
+eval_models.js
+speed_test.js
+load_test.js
+find_models.js
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
