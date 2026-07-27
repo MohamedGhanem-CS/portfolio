@@ -24,4 +24,14 @@
       <image:caption>3D AI Robot Assistant</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://mohamedghanem-ai.vercel.app/portfolio</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mohamedghanem-ai.vercel.app/projects</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -100,7 +100,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Portfolio />} />
-      <Route path="/mag" element={<AdminDashboard />} />
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/login" element={<AdminDashboard />} />
+      <Route path="/studio" element={<AdminDashboard />} />
     </Routes>
   );
 }
