@@ -39,7 +39,7 @@ export const IdCard = () => {
       </div>
       
       {/* Photo-only ID Card Body */}
-      <div className="w-[180px] sm:w-[220px] md:w-[280px] h-[250px] sm:h-[300px] md:h-[440px] bg-[#E60000] rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.8)] border-4 border-white/90 relative overflow-hidden group z-10">
+      <div className="w-[180px] sm:w-[220px] md:w-[320px] h-[250px] sm:h-[300px] md:h-[500px] bg-[#E60000] rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.8)] border-4 border-white/90 relative overflow-hidden group z-10">
         
         {/* Realistic Hole punch */}
         <div className="w-10 h-3 bg-[#050505] rounded-full absolute top-2 left-1/2 -translate-x-1/2 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9)] border border-white/20 z-30"></div> 
