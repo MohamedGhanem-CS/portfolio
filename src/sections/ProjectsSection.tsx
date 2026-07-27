@@ -79,14 +79,14 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
   const scale = useTransform(progress, range, [1, targetScale]);
   
   return (
-    <div className="h-[100vh] md:h-[130vh] flex items-start pt-4 md:items-center md:pt-0 justify-center sticky top-[5vh] md:top-0">
+    <div className="h-[92vh] md:h-[130vh] flex items-start pt-4 md:items-center md:pt-0 justify-center sticky top-[5vh] md:top-0">
       <motion.div 
         style={{ 
           scale, 
           y: `calc(5vh + ${i * 28}px)`,
           transformOrigin: 'top center'
         }}
-        className="relative w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-[1250px] h-[96vh] md:h-[120vh] mx-auto rounded-[40px] sm:rounded-[50px] md:rounded-[60px] ring-2 ring-[#D7E2EA] ring-inset bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col overflow-hidden transform-gpu"
+        className="relative w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-[1250px] h-[88vh] md:h-[120vh] mx-auto rounded-[40px] sm:rounded-[50px] md:rounded-[60px] ring-2 ring-[#D7E2EA] ring-inset bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col overflow-hidden transform-gpu"
       >
         <AnimatePresence mode="wait">
           {!showDescription ? (
