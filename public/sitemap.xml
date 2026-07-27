@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- Main Portfolio Homepage -->
   <url>
     <loc>https://mohamedghanem.dev/</loc>
     <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Hero Image for Google Images -->
+    <image:image>
+      <image:loc>https://mohamedghanem.dev/hero.jpg</image:loc>
+      <image:title>Mohamed Ghanem - AI &amp; Machine Learning Engineer</image:title>
+      <image:caption>Mohamed Ghanem AI Engineer Portfolio Header</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://mohamedghanem.dev/gold_robot_trans.png</image:loc>
+      <image:title>Mohamed Ghanem 3D AI Robot Assistant</image:title>
+      <image:caption>3D AI Robot Assistant</image:caption>
+    </image:image>
   </url>
 </urlset>
