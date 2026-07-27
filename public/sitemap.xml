@@ -6,20 +6,20 @@
 >
   <!-- Main Portfolio Homepage -->
   <url>
-    <loc>https://mohamedghanem.dev/</loc>
+    <loc>https://mohamedghanem-ai.vercel.app/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     
     <!-- Hero Image for Google Images -->
     <image:image>
-      <image:loc>https://mohamedghanem.dev/hero.jpg</image:loc>
+      <image:loc>https://mohamedghanem-ai.vercel.app/hero.jpg</image:loc>
       <image:title>Mohamed Ghanem - AI &amp; Machine Learning Engineer</image:title>
       <image:caption>Mohamed Ghanem AI Engineer Portfolio Header</image:caption>
     </image:image>
     
     <image:image>
-      <image:loc>https://mohamedghanem.dev/gold_robot_trans.png</image:loc>
+      <image:loc>https://mohamedghanem-ai.vercel.app/gold_robot_trans.png</image:loc>
       <image:title>Mohamed Ghanem 3D AI Robot Assistant</image:title>
       <image:caption>3D AI Robot Assistant</image:caption>
     </image:image>
