@@ -112,12 +112,12 @@ export const HeroSection = ({ isReady = true }: { isReady?: boolean }) => {
           initial={{ opacity: 0, x: -15 }}
           animate={isReady ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
           transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="portrait-tablet-left flex flex-col gap-1 md:gap-1 w-full md:w-5/12 pointer-events-auto text-center md:text-left items-center md:items-start z-40 drop-shadow-xl relative flex-none justify-start pb-8 md:pb-0 min-h-min"
+          className="portrait-tablet-left flex flex-col gap-1 md:gap-1 w-full md:w-5/12 pointer-events-auto text-center md:text-left items-center md:items-start z-40 drop-shadow-xl relative flex-none justify-start pb-8 md:pb-0 min-h-min -mt-4 md:-mt-10"
         >
-          <span className="text-white text-xl md:text-[1.75rem] font-medium tracking-wide mb-1 md:mb-2">HI, I'M</span>
+          <span className="text-white text-xl md:text-[2rem] font-medium tracking-wide mb-1 md:mb-2">HI, I'M</span>
           <h2 
             className="text-white leading-[0.9] uppercase"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(3.5rem, 18vw, 9rem)' }}
+            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(4rem, 20vw, 10.5rem)' }}
           >
             {content?.title ? content.title.split(' ').map((word: string, i: number) => (
               <span key={i}>{word}<br/></span>
