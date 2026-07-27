@@ -86,7 +86,7 @@ const Card = ({ project, i, progress, range, targetScale }: CardProps) => {
           y: `calc(5vh + ${i * 28}px)`,
           transformOrigin: 'top center'
         }}
-        className="relative w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-[1400px] h-[96vh] md:h-[130vh] mx-auto rounded-[40px] sm:rounded-[50px] md:rounded-[60px] ring-2 ring-[#D7E2EA] ring-inset bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col overflow-hidden transform-gpu"
+        className="relative w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-[1250px] h-[96vh] md:h-[130vh] mx-auto rounded-[40px] sm:rounded-[50px] md:rounded-[60px] ring-2 ring-[#D7E2EA] ring-inset bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col overflow-hidden transform-gpu"
       >
         <AnimatePresence mode="wait">
           {!showDescription ? (
