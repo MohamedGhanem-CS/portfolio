@@ -9,6 +9,33 @@ type Message = {
   content: string;
 };
 
+const playPopSound = () => {
+  try {
+    const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+
+    osc.connect(gainNode);
+    gainNode.connect(ctx.destination);
+
+    // Natural pop/bubble sound effect
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(600, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.1);
+
+    gainNode.gain.setValueAtTime(0, ctx.currentTime);
+    gainNode.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.01);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.1);
+  } catch (e) {
+    // Ignore audio autoplay restrictions
+  }
+};
+
 const renderMessageContent = (content: string, role: 'user' | 'assistant') => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   // Split by one or more newlines to remove huge blank spaces
@@ -160,6 +187,7 @@ export const AIChatWidget = () => {
         const data = await response.json();
         if (data.error) throw new Error(data.error);
         if (data.reply) {
+          playPopSound();
           setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
           return;
         }
@@ -170,6 +198,7 @@ export const AIChatWidget = () => {
       const decoder = new TextDecoder("utf-8");
       
       // Add empty assistant message that will be populated
+      playPopSound();
       setMessages([...newMessages, { role: 'assistant', content: "" }]);
 
       if (reader) {
