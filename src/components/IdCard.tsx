@@ -23,7 +23,7 @@ export const IdCard = () => {
     >
       
       {/* Card Body Container */}
-      <div className="w-[200px] sm:w-[250px] md:w-[320px] h-[250px] sm:h-[300px] lg:h-full relative z-10 group">
+      <div className="w-[220px] sm:w-[280px] md:w-[400px] h-[250px] sm:h-[300px] lg:h-full relative z-10 group">
         
         {/* High-End Metal Clip and Lanyard (Absolutely positioned so it doesn't affect card height) */}
         <div className="absolute bottom-[calc(100%-12px)] left-1/2 -translate-x-1/2 flex flex-col items-center z-40">
