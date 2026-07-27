@@ -53,7 +53,8 @@ export const AdminDashboard = () => {
     const { error } = await supabase.auth.signInWithPassword({ email: trimmedEmail, password });
 
     if (error) {
-      setErrorMsg('Invalid credentials or too many attempts. Please try again.');
+      console.error('Login error:', error);
+      setErrorMsg(error.message || 'Invalid credentials or too many attempts. Please try again.');
     }
 
     setLoading(false);
