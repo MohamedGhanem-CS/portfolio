@@ -27,11 +27,15 @@ export const AboutSection = () => {
         <div className="flex flex-col items-center lg:items-start w-full lg:w-[60%] text-center lg:text-left z-20 relative pt-3 pb-3">
           <div className="w-full h-full text-[clamp(1.18rem,1.75vw,1.63rem)] flex flex-col justify-between">
             <AnimatedText 
-              text={content?.description?.split('.')[0] + '.' || "Hi, I'm Mohamed Ghanem, a Computer Science student aspiring to become a Machine Learning Engineer. I'm building a strong foundation in Python, Mathematics, Data Structures & Algorithms, Data Analysis, and Machine Learning while applying my knowledge through real-world projects."}
+              text="Hi, I'm Mohamed Ghanem, a Computer Science student aspiring to become a Machine Learning Engineer."
               className="text-[#D7E2EA] font-medium leading-[1.8] text-justify [text-align-last:center] lg:[text-align-last:left] whitespace-normal"
             />
             <AnimatedText 
-              text={content?.description?.split('.').slice(1).join('.') || "I'm passionate about understanding how machine learning algorithms work, developing scalable AI solutions, and continuously improving my technical and problem-solving skills. My goal is to build intelligent systems that create real-world impact."}
+              text="I'm building a strong foundation in Python, Mathematics, Data Structures & Algorithms, Data Analysis, and Machine Learning while applying my knowledge through real-world projects."
+              className="text-[#D7E2EA] font-medium leading-[1.8] text-justify [text-align-last:center] lg:[text-align-last:left] whitespace-normal"
+            />
+            <AnimatedText 
+              text="I'm passionate about understanding how machine learning algorithms work, developing scalable AI solutions, and continuously improving my technical and problem-solving skills. My goal is to build intelligent systems that create real-world impact."
               className="text-[#D7E2EA] font-medium leading-[1.8] text-justify [text-align-last:center] lg:[text-align-last:left] whitespace-normal"
             />
           </div>
