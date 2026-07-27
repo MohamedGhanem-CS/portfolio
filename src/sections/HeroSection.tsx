@@ -47,7 +47,7 @@ export const HeroSection = ({ isReady = true }: { isReady?: boolean }) => {
         initial={{ y: -20, opacity: 0 }}
         animate={isReady ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
         transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-        className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 sm:gap-7 md:gap-10 px-5 sm:px-8 py-3 md:px-10 md:py-4 rounded-full bg-[#111111]/70 backdrop-blur-2xl border border-white/40 border-t-white/90 border-b-black/40 shadow-[0_10px_40px_rgba(0,0,0,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(0,0,0,0.9)] text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase"
+        className="absolute top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 sm:gap-6 md:gap-8 px-4 sm:px-7 py-2.5 md:px-8 md:py-3.5 rounded-full bg-[#111111]/70 backdrop-blur-2xl border border-white/40 border-t-white/90 border-b-black/40 shadow-[0_10px_40px_rgba(0,0,0,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(0,0,0,0.9)] text-[10px] sm:text-[11px] md:text-[13px] font-bold tracking-widest uppercase"
       >
         {['Projects', 'Services', 'About', 'Contact'].map((item) => {
           const href = `#${item.toLowerCase()}`;
