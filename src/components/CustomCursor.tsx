@@ -92,8 +92,8 @@ export const CustomCursor = () => {
 
     const animate = () => {
       // Lerp for smooth ring following (higher = faster, lower = slower/smoother)
-      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.3;
-      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.3;
+      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.5;
+      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.5;
 
       // GPU Accelerated updates using translate3d instead of top/left
       if (dotRef.current) {
@@ -107,7 +107,7 @@ export const CustomCursor = () => {
 
       for (let i = 0; i < TRAIL_COUNT; i++) {
         // Faster and smoother trail interpolation
-        const speed = 0.3 - (i * 0.02);
+        const speed = 0.5 - (i * 0.03);
         const prevPos = i === 0 ? mousePos.current : trailPositions[i - 1];
         
         trailPositions[i].x += (prevPos.x - trailPositions[i].x) * speed;
@@ -174,8 +174,8 @@ export const CustomCursor = () => {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '32px',
-          height: '32px',
+          width: '36px',
+          height: '36px',
           borderRadius: '50%',
           border: '1.5px solid rgba(255, 255, 255, 0.5)',
           boxShadow: '0 0 10px rgba(0,0,0,0.1)',
@@ -193,8 +193,8 @@ export const CustomCursor = () => {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '6px',
-          height: '6px',
+          width: '8px',
+          height: '8px',
           borderRadius: '50%',
           background: 'white',
           boxShadow: '0 0 10px rgba(255, 255, 255, 0.5), 0 0 3px rgba(0,0,0,0.2)',
