@@ -25,7 +25,7 @@ export const AboutSection = () => {
         
         {/* Left Side: Text */}
         <div className="flex flex-col items-center lg:items-start w-full lg:w-[60%] text-center lg:text-left z-20 relative">
-          <div className="w-full text-[clamp(1.18rem,1.75vw,1.63rem)] flex flex-col justify-end mb-2 translate-y-[3px]">
+          <div className="w-full text-[clamp(1.18rem,1.75vw,1.63rem)] flex flex-col justify-end mb-2 translate-y-[4px]">
             <AnimatedText 
               text={content?.description || "Hi, I'm Mohamed Ghanem, a Computer Science student at El Shorouk Academy with a strong passion for Artificial Intelligence and Machine Learning. I specialize in building intelligent systems, developing AI-powered applications, and creating machine learning solutions that solve real-world problems. I'm continuously expanding my knowledge in Deep Learning, Computer Vision, NLP, MLOps, and Generative AI, while working on practical projects that strengthen my technical and problem-solving skills. My goal is to become a professional AI Engineer and contribute to innovative technologies that make a real impact."}
               className="text-[#D7E2EA] font-medium leading-[1.9] text-justify [text-align-last:center] lg:[text-align-last:left] whitespace-normal"
