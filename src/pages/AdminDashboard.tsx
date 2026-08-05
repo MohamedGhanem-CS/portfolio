@@ -26,6 +26,12 @@ export const AdminDashboard = () => {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
+  // Brute force protection
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [lockoutUntil, setLockoutUntil] = useState<number | null>(null);
+  const MAX_ATTEMPTS = 5;
+  const LOCKOUT_DURATION_MS = 2 * 60 * 1000; // 2 minutes
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -46,6 +52,19 @@ export const AdminDashboard = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Check lockout
+    if (lockoutUntil && Date.now() < lockoutUntil) {
+      const remainingSeconds = Math.ceil((lockoutUntil - Date.now()) / 1000);
+      setErrorMsg(`Too many failed attempts. Please wait ${remainingSeconds} seconds.`);
+      return;
+    }
+
+    // Clear lockout if expired
+    if (lockoutUntil && Date.now() >= lockoutUntil) {
+      setLockoutUntil(null);
+      setFailedAttempts(0);
+    }
+
     setLoading(true);
     setErrorMsg('');
 
@@ -53,8 +72,20 @@ export const AdminDashboard = () => {
     const { error } = await supabase.auth.signInWithPassword({ email: trimmedEmail, password });
 
     if (error) {
-      console.error('Login error:', error);
-      setErrorMsg(error.message || 'Invalid credentials or too many attempts. Please try again.');
+      const newFailedAttempts = failedAttempts + 1;
+      setFailedAttempts(newFailedAttempts);
+
+      if (newFailedAttempts >= MAX_ATTEMPTS) {
+        setLockoutUntil(Date.now() + LOCKOUT_DURATION_MS);
+        setErrorMsg('Too many failed attempts. Please wait 2 minutes before trying again.');
+      } else {
+        // Generic error message — prevents user enumeration
+        setErrorMsg(`Invalid credentials. ${MAX_ATTEMPTS - newFailedAttempts} attempts remaining.`);
+      }
+    } else {
+      // Reset on success
+      setFailedAttempts(0);
+      setLockoutUntil(null);
     }
 
     setLoading(false);
@@ -111,10 +142,10 @@ export const AdminDashboard = () => {
             {errorMsg && <p className="text-[#E60000] text-sm font-medium text-center">{errorMsg}</p>}
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || (lockoutUntil !== null && Date.now() < lockoutUntil)}
               className="mt-4 bg-[#E60000] text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-[#E60000]/80 transition-all disabled:opacity-50"
             >
-              {loading ? 'Authenticating...' : 'Sign In'}
+              {loading ? 'Authenticating...' : (lockoutUntil && Date.now() < lockoutUntil) ? 'Locked Out' : 'Sign In'}
             </button>
           </form>
         </div>

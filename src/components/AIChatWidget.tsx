@@ -236,13 +236,17 @@ export const AIChatWidget = () => {
       const { data: session } = await supabase.auth.getSession();
       const accessToken = session.session?.access_token || import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+      // Security: Only send the last 8 messages to the API to prevent token exhaustion
+      const MAX_CONTEXT_MESSAGES = 8;
+      const messagesForApi = newMessages.slice(-MAX_CONTEXT_MESSAGES);
+
       const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${accessToken}`
         },
-        body: JSON.stringify({ messages: newMessages })
+        body: JSON.stringify({ messages: messagesForApi })
       });
 
       if (!response.ok) {
