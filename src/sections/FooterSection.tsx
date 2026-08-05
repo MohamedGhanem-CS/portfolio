@@ -77,42 +77,42 @@ export const FooterSection = () => {
   const socials = [
     { 
       name: 'GitHub', 
-      url: 'https://github.com/MohamedGhanem-CS', 
+      url: 'https://github.com/mohamedghanem-ai', 
       icon: GithubIcon,
       bgGlow: 'bg-[#24292e]/60',
       shadow: 'shadow-[0_10px_40px_rgba(100,110,120,0.5),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(0,0,0,0.9)] hover:shadow-[0_15px_60px_rgba(150,160,170,0.6),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(0,0,0,0.9)]'
     },
     { 
       name: 'LinkedIn', 
-      url: 'https://www.linkedin.com/in/mohamedghanem-dev', 
+      url: 'https://www.linkedin.com/in/mohamedghanem-ai', 
       icon: LinkedinIcon,
       bgGlow: 'bg-[#0A66C2]/60',
       shadow: 'shadow-[0_10px_40px_rgba(10,102,194,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(4,48,94,0.9)] hover:shadow-[0_15px_60px_rgba(10,102,194,1),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(4,48,94,0.9)]'
     },
     { 
       name: 'YouTube', 
-      url: 'https://www.youtube.com/@mohamedghanem-dev', 
+      url: 'https://youtube.com/@mohamedghanem-ai?si=8wVq4mNt492xiz40', 
       icon: YoutubeIcon,
       bgGlow: 'bg-red-600/60',
       shadow: 'shadow-[0_10px_40px_rgba(255,0,0,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(150,0,0,0.9)] hover:shadow-[0_15px_60px_rgba(255,0,0,1),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(150,0,0,0.9)]'
     },
     { 
       name: 'TikTok', 
-      url: 'https://tiktok.com/@mohamedghanem.dev', 
+      url: 'https://www.tiktok.com/@mohamedghanem.ai?_r=1&_t=ZS-98cNLUfLkpD', 
       icon: TikTokIcon,
       bgGlow: 'bg-[#111111]/70',
       shadow: 'shadow-[0_10px_40px_rgba(254,44,85,0.7),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(0,0,0,0.9)] hover:shadow-[0_15px_60px_rgba(37,244,238,0.9),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(0,0,0,0.9)]'
     },
     { 
       name: 'Instagram', 
-      url: 'https://www.instagram.com/mohamedghanem.dev', 
+      url: 'https://www.instagram.com/mohamedghanem.ai?igsh=MWYzd2hkY29iYmZiZQ==', 
       icon: InstagramIcon,
       bgGlow: 'bg-gradient-to-tr from-[#f09433]/70 via-[#e6683c]/70 to-[#bc1888]/70',
       shadow: 'shadow-[0_10px_40px_rgba(225,48,108,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(130,15,55,0.9)] hover:shadow-[0_15px_60px_rgba(225,48,108,1),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(130,15,55,0.9)]'
     },
     { 
       name: 'Facebook', 
-      url: 'https://www.facebook.com/share/1C2HEZLvG6/', 
+      url: 'https://www.facebook.com/share/19Getqzsbt/', 
       icon: FacebookIcon,
       bgGlow: 'bg-[#1877F2]/60',
       shadow: 'shadow-[0_10px_40px_rgba(24,119,242,0.9),_inset_0_2px_10px_rgba(255,255,255,0.7),_inset_0_-6px_12px_rgba(8,60,130,0.9)] hover:shadow-[0_15px_60px_rgba(24,119,242,1),_inset_0_4px_15px_rgba(255,255,255,0.9),_inset_0_-6px_12px_rgba(8,60,130,0.9)]'
